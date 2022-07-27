@@ -77,7 +77,7 @@ export default function Carousel() {
     <div>
       <Slider {...settings} className="w-[100%]" >
         {product.map((data: data) => (
-          <Link to={`${data._id}`}>
+          <Link to={`/detail-product/${data._id}`}>
             <div className="w-[233px] cursor-pointer">
               <p><img src={data.imgCourses} alt="" /></p>
               <p><b>{data.nameCourses}</b></p>

@@ -35,7 +35,34 @@ let postProductCourses = async (req, res) => {
     }
 }
 
+// get product detail
+const getProductCourseById = async (req, res) => {
+    try {
+        const id = req.query.id;
+        if (!id) {
+            return res.status(500).json({
+                errCode: 1,
+                errMessage: 'missing require parameter',
+                data: {}
+            })
+        }
+        const productDetail = await ProductCoursesModel.find({
+            '_id' : { $in: id }   
+        });
+
+        return res.status(200).json({ success: "get product detail ok", productDetail });
+
+    } catch (e) {
+        console.log('create error:', e)
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from server'
+        })
+    }
+};
+
 module.exports = {
     getAllProductCourses,
-    postProductCourses
+    postProductCourses,
+    getProductCourseById
 }

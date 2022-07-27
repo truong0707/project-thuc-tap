@@ -6,6 +6,7 @@ let router = express.Router();
 const initApiProductCourses = (app) => {
     router.get('/products-courses', ProductCoursesController.getAllProductCourses);
     router.post('/products-courses', ProductCoursesController.postProductCourses);
+    router.get('/product-course/products_by_id', ProductCoursesController.getProductCourseById);
 
     return app.use('/api/v1/', router)
 }
