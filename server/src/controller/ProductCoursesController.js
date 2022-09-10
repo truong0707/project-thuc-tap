@@ -47,7 +47,7 @@ const getProductCourseById = async (req, res) => {
             })
         }
         const productDetail = await ProductCoursesModel.find({
-            '_id' : { $in: id }   
+            '_id': { $in: id }
         });
 
         return res.status(200).json({ success: "get product detail ok", productDetail });
@@ -61,8 +61,37 @@ const getProductCourseById = async (req, res) => {
     }
 };
 
+/* delete product */
+const deleteProductById = async (req, res) => {
+    const id = req.query.id;
+    try {
+
+        if (!id) {
+            return res.status(500).json({
+                errCode: 1,
+                errMessage: 'missing require parameter',
+                data: {}
+            })
+        }
+
+        const productDeleted = await ProductCoursesModel.deleteOne({
+            '_id': { $in: id }
+        });
+
+        res.status(200).json({ success: "delete product success!", productDeleted });
+
+    } catch (e) {
+        console.log('create error:', e)
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from server, id khoá học ko tìm thấy'
+        })
+    }
+}
+
 module.exports = {
     getAllProductCourses,
     postProductCourses,
-    getProductCourseById
+    getProductCourseById,
+    deleteProductById
 }
