@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Carousel from '../components/Carousel';
 
-export default function HomePage() {
+interface MyProps {
+    setOpenAdmin: any;
+}
+
+export default function HomePage(props: MyProps) {
+    const setOpenAdmin = props.setOpenAdmin;
+
+    useEffect(() => {
+        setOpenAdmin(false);
+    })
+
+
     return (
         <div className='all__home'>
             <div className='header__home relative'>

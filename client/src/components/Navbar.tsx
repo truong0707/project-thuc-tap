@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 
@@ -14,11 +15,11 @@ export default function Navbar() {
                             <button type="button" className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
                                 <span className="sr-only">Open main menu</span>
 
-                                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true">
+                                <svg className="block h-6 w-6" xmlns="" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
 
-                                <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true">
+                                <svg className="hidden h-6 w-6" xmlns="" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
@@ -26,7 +27,11 @@ export default function Navbar() {
                         <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                             <div className="flex-shrink-0 flex items-center">
                                 <img className="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow" />
-                                <img className="hidden lg:block h-8 w-auto" src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" alt="Workflow" />
+
+                                <Link to='/'>
+                                    <img className="hidden lg:block h-8 w-auto" src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" alt="Workflow" />
+                                </Link>
+
                             </div>
                             <div className="hidden sm:block sm:ml-6">
                                 <div className="flex space-x-4">
@@ -52,6 +57,7 @@ export default function Navbar() {
                                 <div>
                                     <button type="button" className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span className="sr-only">Open user menu</span>
+                                        <a href="/admin" className="bg-gray-[/fff] text-[/000] border-[1px] border-[/000] border-600 px-3 py-2 text-sm font-medium mr-[8px]">ss</a>
                                         <a href="/login" className="bg-gray-[/fff] text-[/000] border-[1px] border-[/000] border-600 px-3 py-2 text-sm font-medium mr-[8px]">Login</a>
                                         <a href="/" className="bg-gray-900 text-white px-3 py-2  text-sm font-medium">Sign Up</a>
                                     </button>
